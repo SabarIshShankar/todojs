@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>todo</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="script.js"></script>
+
+  </head>
+  <body>
+
+			<div ng-controller="TodoController">
+				
+				
+				<div class="todoapp">
+					<div id="menu-bar"> 
+						<h1>Todo </h1>
+						<ul>
+							<li><input type="text" ng-model="search" placeholder="Search Todo Items"/></li> 
+						</ul>
+					</div>
+					<br><br>
+					<div>
+						
+					
+
+
+						<h3 ng-repeat="todo in todos | filter: search">{{ todo.name }}
+						<span ng-click="removeItem(todo)" class="remove"><button>X</button></span>
+						</h3>
+					</div>
+
+
+					<form ng-submit="addTodoItem()">
+						<input type="text" placeholder="Add todo" ng-model="todoItem.name" />
+						<input type="submit" value="Add Todo Item">
+					</form>
+				</div>
+			</div>
+
+  </body>
+</html>
